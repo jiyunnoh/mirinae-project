@@ -1,5 +1,12 @@
 import React, { useContext } from "react";
 import UserContext from "../store/user-context";
+import styled from "styled-components";
+
+const Item = styled.li`
+    &:hover {
+        color: green;
+    }
+`;
 
 const data = [
     { text: '나는 자전거를 탈 수 있습니다.', enText: 'I can ride bicycle.', date: 'Tue, 29 Sep 2020 01:18:17' },
@@ -16,13 +23,11 @@ const History = () => {
             <ul>
                 {data.map((item) => {
                     return (
-                        <React.Fragment key={item.date}>
-                            <li>
-                                <h2>{item.text}</h2>
-                                <span>{item.enText}</span>
-                                <span>{item.date}</span>
-                            </li>
-                        </React.Fragment>
+                        <Item key={item.date}>
+                            <h2>{item.text}</h2>
+                            <span>{item.enText}</span>
+                            <span>{item.date}</span>
+                        </Item>
                     );
                 })}
             </ul>
