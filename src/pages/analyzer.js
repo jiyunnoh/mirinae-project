@@ -1,5 +1,14 @@
+import { useContext } from "react";
+import UserContext from "../store/user-context";
+
 const Analyzer = () => {
-    return <h2>This is an Analyzer page</h2>;
+    const userCtx = useContext(UserContext);
+    return (
+        <>
+            <h1>This is Analyzer page.</h1>
+            <h2>{userCtx.name}</h2>
+        </>
+    );
 };
 
 export default Analyzer;
