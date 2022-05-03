@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
+const ItemsList = styled.ul`
+    list-style: none;
+    padding: 0;
+    margin: 0 3rem 0 10rem;
+`;
+
 const Item = styled.li`
-&:hover {
-    color: green;
-}
+    color: rgb(135, 135, 135);
+
+    &:hover {
+        color: rgb(157, 205, 202);
+    }
 `;
 
 const data = [
@@ -14,17 +22,18 @@ const data = [
 
 const HistoryItems = () => {
     return (
-        <ul>
+        <ItemsList>
             {data.map((item) => {
                 return (
                     <Item key={item.date}>
-                        <h2>{item.text}</h2>
+                        <h4>{item.text}</h4>
                         <span>{item.enText}</span>
                         <span>{item.date}</span>
+                        <hr />
                     </Item>
                 );
             })}
-        </ul>
+        </ItemsList>
     );
 };
 

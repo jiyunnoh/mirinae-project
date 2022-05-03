@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import close from "../assets/icon-close.svg";
 
@@ -50,9 +50,9 @@ const NavbarItem = styled.li`
     height: 30px;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
     text-decoration: none;
-    color: #aaa;
+    color: rgb(85, 85, 85);
     font-size: 1.2rem;
     width: 100%;
     height: 100%;
@@ -61,7 +61,11 @@ const StyledLink = styled(Link)`
     padding: 0 16px;
 
     &:hover {
-        color: aqua;
+        color: rgb(157, 205, 202);
+    }
+
+    &.active {
+        color: rgb(157, 205, 202);
     }
 `;
 
@@ -95,7 +99,7 @@ const Navbar = ({ isClicked, openNavbarHandler }) => {
                     {data.map((item, index) => {
                         return (
                             <NavbarItem key={index}>
-                                <StyledLink to={item.path}>
+                                <StyledLink to={item.path} activeClassName="active">
                                     {item.title}
                                 </StyledLink>
                             </NavbarItem>
