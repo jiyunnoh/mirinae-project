@@ -34,7 +34,7 @@ const Header = () => {
         <HeaderContainer>
             <IconWrapper>
                 <Link to="#">
-                    <Logo onClick={navbarCtx.onOpenNavbar} />
+                    <Logo onClick={navbarCtx.onToggleNavbar} />
                 </Link>
             </IconWrapper>
             <UserAccountGreeting>Hi, {userCtx.name}!</UserAccountGreeting>

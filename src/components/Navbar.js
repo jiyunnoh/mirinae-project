@@ -90,18 +90,18 @@ const Navbar = () => {
     const navbarCtx = useContext(NavbarContext);
     return (
         <>
-            {navbarCtx.isClicked ? <Backdrop onClick={navbarCtx.onOpenNavbar} /> : null }
+            {navbarCtx.isClicked ? <Backdrop onClick={navbarCtx.onToggleNavbar} /> : null }
             <NavbarContainer className={navbarCtx.isClicked ? "active" : ""}>
                 <ListContainer>
                     <CloseIconContainer>
                         <Link to="#">
-                            <CloseIcon onClick={navbarCtx.onOpenNavbar} />
+                            <CloseIcon onClick={navbarCtx.onToggleNavbar} />
                         </Link>
                     </CloseIconContainer>
                     {data.map((item, index) => {
                         return (
                             <NavbarItem key={index}>
-                                <StyledLink to={item.path} activeClassName="active">
+                                <StyledLink to={item.path} activeClassName="active" onClick={navbarCtx.onCloseNavbar}>
                                     {item.title}
                                 </StyledLink>
                             </NavbarItem>
