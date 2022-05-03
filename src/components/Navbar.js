@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import close from "../assets/icon-close.svg";
+import { useContext } from "react";
+import NavbarContext from "../store/navbar-context";
 
 const CloseIcon = styled.img.attrs({
     src: `${close}`
@@ -84,16 +86,16 @@ const data = [
     { title: "History", path: "/history" }
 ]
 
-const Navbar = ({ isClicked, openNavbarHandler }) => {
-
+const Navbar = () => {
+    const navbarCtx = useContext(NavbarContext);
     return (
         <>
-            {isClicked ? <Backdrop onClick={openNavbarHandler} /> : null }
-            <NavbarContainer className={isClicked ? "active" : ""}>
+            {navbarCtx.isClicked ? <Backdrop onClick={navbarCtx.onOpenNavbar} /> : null }
+            <NavbarContainer className={navbarCtx.isClicked ? "active" : ""}>
                 <ListContainer>
                     <CloseIconContainer>
                         <Link to="#">
-                            <CloseIcon onClick={openNavbarHandler} />
+                            <CloseIcon onClick={navbarCtx.onOpenNavbar} />
                         </Link>
                     </CloseIconContainer>
                     {data.map((item, index) => {

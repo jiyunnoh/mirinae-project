@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../store/user-context";
+import NavbarContext from "../store/navbar-context";
 import styled from "styled-components";
 import logo from "../assets/icon-gnb.svg";
 
@@ -25,14 +26,15 @@ const UserAccountGreeting = styled.h4`
     color: #aaa;
 `;
 
-const Header = ({ openNavbarHandler }) => {
+const Header = () => {
     const userCtx = useContext(UserContext);
+    const navbarCtx = useContext(NavbarContext);
 
     return (
         <HeaderContainer>
             <IconWrapper>
                 <Link to="#">
-                    <Logo onClick={openNavbarHandler} />
+                    <Logo onClick={navbarCtx.onOpenNavbar} />
                 </Link>
             </IconWrapper>
             <UserAccountGreeting>Hi, {userCtx.name}!</UserAccountGreeting>

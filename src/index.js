@@ -8,6 +8,7 @@ import Analyzer from './pages/analyzer';
 import History from './pages/history';
 import UserContext from './store/user-context';
 import { createGlobalStyle } from 'styled-components';
+import { NavbarContextProvider } from './store/navbar-context';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -21,6 +22,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
   <UserContext.Provider value={{name: 'Jiyun'}}>
+    <NavbarContextProvider>
     <GlobalStyle />
     <BrowserRouter>
       <Routes>
@@ -29,6 +31,7 @@ root.render(
         <Route path="history" element={<History />} />
       </Routes>
     </BrowserRouter>
+    </NavbarContextProvider>
   </UserContext.Provider>
 );
 
