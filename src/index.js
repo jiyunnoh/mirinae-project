@@ -7,10 +7,21 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Analyzer from './pages/analyzer';
 import History from './pages/history';
 import UserContext from './store/user-context';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: rgb(247, 251, 251);
+    margin: 0;
+    padding: 0;
+  }
+`;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  
   <UserContext.Provider value={{name: 'Jiyun'}}>
+    <GlobalStyle />
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />

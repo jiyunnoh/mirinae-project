@@ -1,11 +1,11 @@
-import HistoryItems from "../components/historyItems";
-import UserAccount from "../components/userAccount";
+import HistoryItems from "../components/HistoryItems";
+import Header from "../components/Header";
 
 const History = () => {
     return (
         <>
-            <h1>Exploration history</h1>
-            <UserAccount />
+            <Header />
+            <h3>Exploration history</h3>
             <HistoryItems />
         </>
     );
